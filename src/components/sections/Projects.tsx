@@ -50,7 +50,7 @@ const projects: Project[] = [
     {
         title: 'Dormy',
         cover: [
-            '/images/dormy/pricing.png',
+            '/images/dormy/pricing2.png',
             '/images/dormy/dashboard.png',
             '/images/dormy/tenants.png',
         ],

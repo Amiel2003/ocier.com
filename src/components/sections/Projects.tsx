@@ -34,10 +34,10 @@ const projects: Project[] = [
     {
         title: 'MATIGDA',
         cover: [
-            '/images/matigda/image.png',
-            '/images/matigda/dashboard.png',
-            '/images/matigda/yearbooks.png',
-            '/images/matigda/sidebar.png',
+            '/images/matigda/image.webp',
+            '/images/matigda/dashboard.webp',
+            '/images/matigda/yearbooks.webp',
+            '/images/matigda/sidebar.webp',
         ],
         colors: ['#08090C', '#111111', '#0C1320', '#232326', '#00BC7D'],
         logo: MatigdaAppLogo,
@@ -56,9 +56,9 @@ const projects: Project[] = [
     {
         title: 'Dormy',
         cover: [
-            '/images/dormy/pricing2.png',
-            '/images/dormy/dashboard.png',
-            '/images/dormy/tenants.png',
+            '/images/dormy/pricing2.webp',
+            '/images/dormy/dashboard.webp',
+            '/images/dormy/tenants.webp',
         ],
         colors: ['#0C2D57', '#FC6736', '#EEEFF2', '#F6F9FF', '#FFFFFF'],
         logo: DormyAppLogo,
@@ -77,9 +77,9 @@ const projects: Project[] = [
     {
         title: 'CrashWatch',
         cover: [
-            '/images/crashwatch/modal.png',
-            '/images/crashwatch/dashboard.png',
-            '/images/crashwatch/device2.png',
+            '/images/crashwatch/modal.webp',
+            '/images/crashwatch/dashboard.webp',
+            '/images/crashwatch/device2.webp',
         ],
         colors: ['#777979', '#c74b3b', '#eaeaed', '#f8f9fc', '#ffffff'],
         logo: CrashWatchAppLogo,

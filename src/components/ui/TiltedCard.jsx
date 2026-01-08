@@ -62,7 +62,7 @@ export default function TiltCard({ description, title, index }) {
       style={{
         backgroundImage: `
       linear-gradient(to bottom right, rgba(0,0,0,0.4), rgba(255,255,255,0.1)),
-      url('/images/services.jpg')
+      url('/images/services.webp')
     `,
         backgroundSize: 'cover',
         backgroundPosition: 'center',

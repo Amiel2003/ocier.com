@@ -111,7 +111,7 @@ export function HeroSection() {
 
 
                     <Image
-                        src="/images/sitting1.png"
+                        src="/images/sitting1.webp"
                         alt="Profile picture"
                         width={600}
                         height={750}

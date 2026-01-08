@@ -68,7 +68,7 @@ export function NavBar() {
                 </div>
 
                 {/* Desktop Navigation */}
-                {!isMobile && (
+                {/* {!isMobile && (
                     <NavigationMenu className="w-full">
                         <NavigationMenuList className="flex-wrap gap-10">
                             <NavigationMenuItem asChild>
@@ -108,10 +108,10 @@ export function NavBar() {
                             </NavigationMenuItem>
                         </NavigationMenuList>
                     </NavigationMenu>
-                )}
+                )} */}
 
                 {/* Mobile Menu Button & Dark Mode Toggle */}
-                <div className="flex items-center gap-4">
+                {/* <div className="flex items-center gap-4">
                     {isMobile && (
                         <button
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -121,11 +121,11 @@ export function NavBar() {
                             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>
                     )}
-                </div>
+                </div> */}
             </div>
 
             {/* Mobile Menu */}
-            {isMobile && mobileMenuOpen && (
+            {/* {isMobile && mobileMenuOpen && (
                 <div className="px-6 pb-6 backdrop-blur-md">
                     <nav className="flex flex-col gap-4">
                         <Link
@@ -158,7 +158,7 @@ export function NavBar() {
                         </Link>
                     </nav>
                 </div>
-            )}
+            )} */}
         </header>
     )
 }

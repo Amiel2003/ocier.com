@@ -81,13 +81,13 @@ export function HeroSection() {
                         ? 'opacity-100 translate-y-0'
                         : 'opacity-0 translate-y-4'
                         }`}>
-                        <Link href={"/https://web.facebook.com/amieljay.ocier/"}>
+                        <Link href={"https://web.facebook.com/amieljay.ocier/"}>
                             <FaFacebook size={25} className="text-background" />
                         </Link>
-                        <Link href={"/https://www.instagram.com/mr_epee/profilecard/?igsh=MTd0Y2F2em53YW5kbA=="}>
+                        <Link href={"https://www.instagram.com/mr_epee/profilecard/?igsh=MTd0Y2F2em53YW5kbA=="}>
                             <FaInstagram size={25} className="text-background" />
                         </Link>
-                        <Link href={"/https://x.com/prodbymrepee"}>
+                        <Link href={"https://x.com/prodbymrepee"}>
                             <FaTwitter size={25} className="text-background" />
                         </Link>
                         <Link href={"https://www.linkedin.com/in/amiel-jay-ocier-4446672b1/"}>

@@ -6,94 +6,161 @@ import { FaGithub } from 'react-icons/fa';
 
 type Project = {
     title: string;
-    cover: string[];
+    cover: string[]; // FIXED: keep this flat for safety
     colors: string[];
     logo: React.FC<React.SVGProps<SVGSVGElement>> | string;
     link: {
-        link: string,
-        source: string,
-        hasSite: boolean,
-        hasSource: boolean,
-    }
+        link: string;
+        source: string;
+        hasSite: boolean;
+        hasSource: boolean;
+    };
     date: string;
     type: string;
     description: string;
+    layout: 'default' | 'bento';
+    tags: string[];
 };
 
 export default function ProjectCard({ project }: { project: Project }) {
     const [activeIndex, setActiveIndex] = useState(0);
 
     return (
-        <div className="sticky-card sticky top-[65px] flex items-center justify-center pb-40">
-            <div className="relative w-screen h-screen overflow-hidden">
-                <div className="grid grid-cols-15 bg-accent-foreground p-3 gap-3">
+        <div className="sticky-card sticky top-[65px] flex justify-center pb-40">
+            <div className="relative w-screen min-h-[100svh] md:h-screen overflow-hidden">
+                <div className="grid grid-cols-1 md:grid-cols-15 gap-3 bg-accent-foreground p-2 md:p-3">
 
-                    {/* Background Image Section */}
-                    <div className="w-full col-span-10 min-h-[calc(100vh-90px)] mb-30">
+                    {/* ================= IMAGE SECTION ================= */}
+                    <div className="order-1 md:order-none col-span-1 md:col-span-10">
                         <div
-                            className="w-full h-full bg-center bg-cover bg-no-repeat rounded-2xl transition-all duration-200"
-                            style={{ backgroundImage: `url(${project.cover[activeIndex]})` }}
+                            className="
+                                w-full
+                                h-[240px]
+                                sm:h-[300px]
+                                md:h-[calc(100vh-90px)]
+                                bg-center bg-cover bg-no-repeat
+                                rounded-2xl
+                                transition-all duration-200
+                            "
+                            style={{
+                                backgroundImage: `url(${project.cover[activeIndex]})`,
+                            }}
                         />
-
                     </div>
 
-                    {/* Info Section */}
-                    <div className="col-span-5 flex flex-col border border-background rounded-2xl mb-30 px-12 pt-15 pb-10">
-                        <div className="flex flex-col items-start justify-start">
-                            <div className="flex flex-row  w-full">
+                    {/* ================= INFO SECTION ================= */}
+                    <div
+                        className="
+                            order-2 md:order-none
+                            col-span-1 md:col-span-5
+                            flex flex-col
+                            border border-background
+                            rounded-2xl
+                            px-4 md:px-12
+                            pt-4 md:pt-15
+                            pb-10
+                        "
+                    >
+                        {/* Header */}
+                        <div className="flex items-start w-full">
+                            {/* Mobile links */}
+                            <div className="flex gap-2 md:hidden">
+                                {project.link.hasSite && (
+                                    <button onClick={() => window.open(project.link.source, '_blank')} className="hover:bg-gray-700 transition-all text-background  duration-200 flex gap-1 text-xs items-center font-family-poppins bg-gray-600 px-2 py-1 rounded-sm" >
+                                        <Globe size={12} />
+                                        Website
+                                    </button>
+                                )}
 
-
-                                <p className="ml-auto text-background font-family-jetbrains">
-                                    {project.date}
-                                </p>
-
+                                {project.link.hasSource && (
+                                    <button onClick={() => window.open(project.link.source, '_blank')} className="hover:bg-gray-700 transition-all text-background  duration-200 flex gap-1 text-xs items-center font-family-poppins bg-gray-600 px-2 py-1 rounded-sm" >
+                                        <FaGithub size={12} />
+                                        Source
+                                    </button>
+                                )}
                             </div>
 
+                            <p className="ml-auto text-background text-xs md:text-sm font-family-jetbrains">
+                                {project.date}
+                            </p>
+                        </div>
+
+                        {/* Logo */}
+                        <div className="mt-4 md:self-start">
                             {typeof project.logo === 'string' ? (
                                 <img
                                     src={project.logo}
-                                    alt={`${project.title} Logo`}
+                                    alt={`${project.title} logo`}
                                     className="w-34 h-8 md:w-69 md:h-19"
                                 />
                             ) : (
-                                <project.logo className={`w-34 h-8 md:w-69 md:h-19 ${project.title == 'Dormy' && 'md:-ml-4'}`} />
+                                <project.logo
+                                    className={`w-34 h-8 md:w-69 md:h-19 ${project.title === 'Dormy' ? 'md:-ml-4' : ''
+                                        }`}
+                                />
                             )}
                         </div>
 
-                        <div className='text-background flex flex-row gap-2'>
-                            {project.link.hasSite &&
-                                <button
-                                    onClick={() => window.open(project.link.link, '_blank')}
-                                    className="hover:bg-gray-700 transition-all duration-200 flex gap-1 text-xs items-center font-family-poppins bg-gray-600 px-2 py-1 rounded-sm cursor-pointer"
-                                >
+                        {/* Desktop links */}
+                        <div className="hidden md:flex gap-2 mt-4">
+                            {project.link.hasSite && (
+                                <button onClick={() => window.open(project.link.source, '_blank')} className="hover:bg-gray-700 transition-all text-background duration-200 flex gap-1 text-xs items-center font-family-poppins bg-gray-600 px-2 py-1 rounded-sm" >
                                     <Globe size={12} />
                                     Website
                                 </button>
-                            }
+                            )}
 
-                            {project.link.hasSource && <button
-                                onClick={() => window.open(project.link.source, '_blank')}
-                                className="hover:bg-gray-700 transition-all duration-200 flex gap-1 text-xs items-center font-family-poppins bg-gray-600 px-2 py-1 rounded-sm"
-                            >
-                                <FaGithub size={12} />
-                                Source
-                            </button>}
-
-
+                            {project.link.hasSource && (
+                                <button onClick={() => window.open(project.link.source, '_blank')} className="hover:bg-gray-700 transition-all text-background duration-200 flex gap-1 text-xs items-center font-family-poppins bg-gray-600 px-2 py-1 rounded-sm" >
+                                    <FaGithub size={12} />
+                                    Source
+                                </button>
+                            )}
                         </div>
 
-                        <p className="relative z-10 text-md font-family-ronzino pt-6 text-gray-400">
+                        {/* Description */}
+                        <p className="md:mt-6 mt-3 text-xs md:text-sm text-gray-400 font-family-ronzino">
                             {project.description}
                         </p>
 
+                        {/* Tags */}
+                        <div className="flex flex-wrap gap-1 md:mt-5 mt-3">
+                            {project.tags.map((tag, index) => (
+                                <span
+                                    key={index}
+                                    className="
+                                        md:px-3 px-2 md:py-1
+                                        text-[9px] md:text-[11px]
+                                        rounded-full
+                                        bg-white/10
+                                        backdrop-blur-md
+                                        border border-white/20
+                                        text-white
+                                        hover:bg-white/20
+                                        transition
+                                    "
+                                >
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+
                         {/* Mini Slider */}
-                        <div className="flex mt-5 gap-2">
+                        <div className="flex gap-2 mt-5 overflow-x-auto pb-2">
                             {project.cover.map((img, idx) => (
-                                <div
+                                <button
                                     key={idx}
                                     onClick={() => setActiveIndex(idx)}
-                                    className={`w-15 h-12 rounded cursor-pointer border-2 ${idx === activeIndex ? 'border-accent' : 'border-gray-400'
-                                        }`}
+                                    className={`
+                                        md:min-w-[60px] md:h-[48px] h-[35px] min-w-[40px]
+                                        rounded
+                                        border-2
+                                        transition
+                                        ${idx === activeIndex
+                                            ? 'border-accent'
+                                            : 'border-gray-400'
+                                        }
+                                    `}
                                     style={{
                                         backgroundImage: `url(${img})`,
                                         backgroundSize: 'cover',
@@ -103,16 +170,16 @@ export default function ProjectCard({ project }: { project: Project }) {
                             ))}
                         </div>
 
-                        <div className="mt-auto flex items-center justify-start text-background">
+                        {/* Color Palette */}
+                        <div className="mt-auto flex">
                             {project.colors.map((color, index) => (
                                 <div
                                     key={index}
-                                    className="w-12 h-24"
+                                    className="w-12 md:h-24 h-5"
                                     style={{ backgroundColor: color }}
                                 />
                             ))}
                         </div>
-
                     </div>
                 </div>
             </div>

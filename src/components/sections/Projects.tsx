@@ -5,8 +5,10 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import ProjectCard from '../ui/project-card';
+import BentoSlide from '../ui/bento-slide';
 import MatigdaAppLogo from '../ui/projects/matigda/app-logo';
 import DormyAppLogo from '../ui/projects/dormy/app-logo';
+import CrashWatchAppLogo from '../ui/projects/crashwatch/app-logo';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,6 +26,8 @@ type Project = {
     date: string;
     type: string;
     description: string;
+    layout: 'default' | 'bento';
+    tags: string[];
 };
 
 const projects: Project[] = [
@@ -46,6 +50,8 @@ const projects: Project[] = [
         date: "2025",
         type: "Information System",
         description: "Co-developed and deployed a comprehensive yearbook management system for Bukidnon State University's official yearbook, Matigda, featuring appointment booking, subscriptions, yearbook onboarding, and payment verification.",
+        layout: "default",
+        tags: ['React', 'Laravel', 'PostgreSQL', 'Tailwind'],
     },
     {
         title: 'Dormy',
@@ -65,24 +71,29 @@ const projects: Project[] = [
         date: "2024",
         type: "Information System",
         description: "Collaborated on a SaaS multi-tenant platform for universities as a school project, streamlining dorm management with user-role control. Features include managing dorms and rooms, assigning students, and maintaining resident records.",
+        layout: "default",
+        tags: ['Laravel', 'PostgreSQL', 'Tailwind', 'Tenancy'],
     },
     {
-        title: 'AI Flashcard Generator',
+        title: 'CrashWatch',
         cover: [
-            '/images/matigda/flashcard1.png',
-            '/images/matigda/flashcard2.png',
+            '/images/crashwatch/modal.png',
+            '/images/crashwatch/dashboard.png',
+            '/images/crashwatch/device2.png',
         ],
-        colors: ['#0C1320'],
-        logo: '/images/flashcard-logo.png',
+        colors: ['#777979', '#c74b3b', '#eaeaed', '#f8f9fc', '#ffffff'],
+        logo: CrashWatchAppLogo,
         link: {
-            link: "https://matigda.com/login",
-            source: "",
-            hasSite: true,
-            hasSource: false,
+            link: "",
+            source: "https://github.com/Amiel2003/CrashWatch.git",
+            hasSite: false,
+            hasSource: true,
         },
         date: "2025",
         type: "Information System",
-        description: "Automatically generates intelligent flashcards using AI.",
+        description: "Led the development of a capstone sensor-driven system that integrates accelerometer data, GPS tracking, web technologies, and SMS alerts to detect collisions and abnormal movement patterns for real-time accident detection and location-based notification.",
+        layout: "default",
+        tags: ['IoT', 'Laravel', 'Python', 'Realtime'],
     },
 ];
 
@@ -120,12 +131,12 @@ export default function StickyProjects() {
     );
 
     return (
-        <div className="bg-accent-foreground mt-50" ref={containerRef}>
+        <div className="bg-accent-foreground" ref={containerRef}>
 
             {/* Sticky Header */}
             <div className="sticky top-0 z-50 bg-accent-foreground text-background py-5 px-6">
                 <h1 className="text-xs md:text-lg font-semibold font-family-ronzino">
-                    // Projects
+                    // Web Projects
                 </h1>
             </div>
 
@@ -134,6 +145,8 @@ export default function StickyProjects() {
                 {projects.map((project, index) => (
                     <ProjectCard key={index} project={project} />
                 ))}
+                <div className="sticky-card sticky top-[15px] flex items-center justify-center pb-10 bg-accent-foreground">
+                </div>
             </div>
         </div>
     );

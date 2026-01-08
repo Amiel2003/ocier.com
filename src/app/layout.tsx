@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Geist, Geist_Mono, Poppins, Archivo_Black, Montserrat, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import LenisProvider from "@/provider/LenisProvider";
 
 const ronzino = localFont({
   src: [
@@ -76,7 +77,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${archivoBlack.variable} ${montserrat.variable} ${ronzino.variable} ${jetbrains.variable}  antialiased`}
       >
-        {children}
+        <LenisProvider>{children}</LenisProvider>
       </body>
     </html>
   );

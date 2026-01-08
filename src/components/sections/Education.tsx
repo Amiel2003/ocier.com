@@ -1,81 +1,63 @@
-import React from 'react';
-import { ArrowDownRight } from 'lucide-react';
-import Image from "next/image";
+import React from "react";
 
 const educationData = [
     {
         id: 1,
         icon: "/icons/star2.png",
-        date: "2021 - 2025",
+        start_date: "2021",
+        end_date: "2025",
         school: "Bukidnon State University",
         program: "Bachelor of Science in Information Technology",
         description:
             "Graduated Cum Laude, specializing in web and system development, with hands-on experience building full-stack applications and academic projects.",
+        address: "Malaybalay City, Bukidnon",
     },
     {
         id: 2,
         icon: "/icons/shape2.png",
-        date: "2015 - 2021",
+        start_date: "2015",
+        end_date: "2021",
         school: "Bukidnon National High School",
         program: "Humanities and Social Sciences / SPA",
         description:
             "Earned academic honors while building a strong foundation in humanities, communication, and creative disciplines through the Special Program in the Arts.",
+        address: "Malaybalay City, Bukidnon",
     },
 ];
 
-
 const Education = () => {
     return (
-        <div className="w-full min-h-[250px] flex md:flex-row flex-col items-stretch md:pl-18 pr-12 py-10 border-accent-foreground md:mt-7">
-            <div className=" place-content-start w-[40%] flex justify-between pr-4 md:pl-0 pl-7">
-                {/* Left spacer / title */}
-                <h1 className='text-6xl font-bold tracking-tight'>education</h1>
-                <div className='items-end justify-end opacity-99 md:block hidden'>
-                    <ArrowDownRight size={55} />
-                </div>
-            </div>
+        <div className="text-background flex flex-col gap-2">
+            {educationData.map((educ, index) => (
+                <div key={index} className="flex flex-col gap-0">
+                    {/* Main Card */}
+                    <div className="border border-background rounded-t-lg px-3 md:px-4 py-2">
+                        <div className="grid grid-cols-5 gap-1 md:gap-1">
+                            {/* Date Column */}
+                            <div className="col-span-1 tracking-tight">
+                                <div className="text-xs md:text-md font-family-jetbrains">{educ.start_date}-</div>
+                                <h1 className="font-bold font-family-ronzino text-3xl md:text-5xl">{educ.end_date}</h1>
+                            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 items-stretch w-full">
-                {educationData.map((edu) => (
-                    <div
-                        key={edu.id}
-                        className="md:border-l-2 border-accent-foreground h-full pl-8 pr-7 py-4 pb-4"
-                    >
-                        <div className="flex items-start gap-4 pb-5 border-gray-400">
-                            <Image
-                                src={edu.icon}
-                                alt="Icon"
-                                width={65}
-                                height={50}
-                                className="opacity-90"
-                                priority
-                            />
-
-                            <div className="flex flex-col md:leading-9 leading-6">
-                                <p className="md:text-sm text-xs leading-4 font-family-ronzino font-light tracking-tight">
-                                    {edu.date}
-                                </p>
-                                <h3 className="md:text-[26px] text-[20px] font-family-ronzino font-semibold tracking-tighter">
-                                    {edu.school}
-                                </h3>
-                                <p className="md:text-[14px] text-[12px] leading-4 font-family-ronzino font-light tracking-tight">
-                                    {edu.program}
-                                </p>
+                            {/* Content Column */}
+                            <div className="col-span-4 tracking-tight">
+                                <h1 className="font-bold font-family-ronzino text-base md:text-xl">{educ.program}</h1>
+                                <p className="text-sm md:text-md">{educ.school}</p>
+                                <div className="tracking-tight text-xs md:text-sm font-family-ronzino text-gray-400 font-light">
+                                    {educ.address}
+                                </div>
                             </div>
                         </div>
-
-                        <div className="py-5 px-7 font-family-poppins bg-accent-foreground rounded-lg">
-                            <p className="md:text-[13px] text-[10px] tracking-tighter text-background indent-8">
-                                {edu.description}
-                            </p>
-                        </div>
                     </div>
-                ))}
-            </div>
+
+                    {/* Description Panel (Outside Main Card) */}
+                    <div className="border border-background rounded-b-lg border-t-0 px-3 md:px-4 pt-2 pb-2 text-xs tracking-tight text-gray-300 font-family-jetbrains bg-white/10 backdrop-blur-md">
+                        {educ.description}
+                    </div>
+                </div>
+            ))}
         </div>
-
-
     );
-}
+};
 
 export default Education;

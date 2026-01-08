@@ -61,7 +61,7 @@ export function NavBar() {
         <header className="absolute top-0 left-0 w-full  z-50 rounded-b-2xl">
             <div className="max-w-full mx-auto flex items-center justify-between py-4 px-9">
                 {/* Logo */}
-                <div style={{ fontFamily: 'var(--font-ronzino)' }} className="tracking-[-1.1px] flex items-center justify-center gap-1 text-2xl font-semibold transition duration-300">
+                <div style={{ fontFamily: 'var(--font-ronzino)' }} className="tracking-[-1.1px] flex items-center justify-center gap-1 text-2xl font-semibold transition text-background duration-300">
                     <span className="mt-1"> ©</span>
 
                     amielfolio
@@ -74,7 +74,7 @@ export function NavBar() {
                             <NavigationMenuItem asChild>
                                 <Link
                                     href="/"
-                                    className="relative inline-block px-4 py-0.5 dark:text-zinc-50 font-poppins rounded-sm font-medium transform hover:-translate-y-0.5 transition duration-300 text-sm overflow-hidden group before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/30 before:to-transparent hover:before:translate-x-0 before:transition-transform before:duration-500 before:ease-in-out"
+                                    className="relative inline-block px-4 py-0.5 dark:text-zinc-50 font-poppins rounded-sm font-medium transform hover:-translate-y-0.5 transition duration-300 text-sm overflow-hidden group before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/30 before:to-transparent hover:before:translate-x-0 before:transition-transform before:duration-500 before:ease-in-out text-background"
                                 >
                                     Home
                                 </Link>
@@ -83,7 +83,7 @@ export function NavBar() {
                             <NavigationMenuItem asChild>
                                 <Link
                                     href="/about"
-                                    className="relative inline-block px-4 py-0.5 dark:text-zinc-50 font-poppins rounded-sm font-medium transform hover:-translate-y-0.5 transition duration-300 text-sm overflow-hidden group before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/30 before:to-transparent hover:before:translate-x-0 before:transition-transform before:duration-500 before:ease-in-out"
+                                    className="relative inline-block px-4 py-0.5 dark:text-zinc-50 font-poppins rounded-sm font-medium transform hover:-translate-y-0.5 transition duration-300 text-sm overflow-hidden group before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/30 before:to-transparent hover:before:translate-x-0 before:transition-transform before:duration-500 before:ease-in-out text-background"
                                 >
                                     About
                                 </Link>
@@ -92,7 +92,7 @@ export function NavBar() {
                             <NavigationMenuItem asChild>
                                 <Link
                                     href="/projects"
-                                    className="relative inline-block px-4 py-0.5 dark:text-zinc-50 font-poppins rounded-sm font-medium transform hover:-translate-y-0.5 transition duration-300 text-sm overflow-hidden group before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/30 before:to-transparent hover:before:translate-x-0 before:transition-transform before:duration-500 before:ease-in-out"
+                                    className="relative inline-block px-4 py-0.5 dark:text-zinc-50 font-poppins rounded-sm font-medium transform hover:-translate-y-0.5 transition duration-300 text-sm overflow-hidden group before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/30 before:to-transparent hover:before:translate-x-0 before:transition-transform before:duration-500 before:ease-in-out text-background"
                                 >
                                     Projects
                                 </Link>
@@ -101,7 +101,7 @@ export function NavBar() {
                             <NavigationMenuItem asChild>
                                 <Link
                                     href="/contact"
-                                    className="relative inline-block px-4 py-0.5 dark:text-zinc-50 font-poppins rounded-sm font-medium transform hover:-translate-y-0.5 transition duration-300 text-sm overflow-hidden group before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/30 before:to-transparent hover:before:translate-x-0 before:transition-transform before:duration-500 before:ease-in-out"
+                                    className="relative inline-block px-4 py-0.5 dark:text-zinc-50 font-poppins rounded-sm font-medium transform hover:-translate-y-0.5 transition duration-300 text-sm overflow-hidden group before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/30 before:to-transparent hover:before:translate-x-0 before:transition-transform before:duration-500 before:ease-in-out text-background"
                                 >
                                     Contact
                                 </Link>

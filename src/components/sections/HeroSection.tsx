@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { ContainerTextFlip } from "../ui/container-text-flip";
 import { BackgroundRippleEffect } from "../ui/background-ripple-effect";
-import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
 import { AnimatedShinyText } from "../ui/animated-shiny-text";
 import { SpotlightLight } from "../ui/spotlightlight";
 import Image from "next/image";
@@ -22,7 +22,7 @@ export function HeroSection() {
     }, []);
 
     return (
-        <div className="h-screen w-full rounded-md flex md:items-center md:justify-center antialiased bg-grid-white/[0.02] relative overflow-hidden">
+        <div className="h-screen w-full flex md:items-center md:justify-center antialiased bg-grid-white/[0.02] relative overflow-hidden">
 
             <div className="md:mt-30 -300 grid grid-cols-1 md:grid-cols-2 p-4 max-w-7xl mx-auto relative z-10 w-full pt-20 md:pt-0">
                 {/* Title */}
@@ -38,7 +38,7 @@ export function HeroSection() {
                     {/* First name - slide in from left */}
                     <div
                         style={{ fontFamily: 'var(--font-ronzino)' }}
-                        className={`tracking-[-8px] text-9xl md:text-[190px] font-bold text-start text-accent-foreground -mt-6 transition-all duration-1000 ease-out delay-200 ${isVisible
+                        className={`tracking-[-8px] text-9xl md:text-[190px] font-bold text-start text-background -mt-6 transition-all duration-1000 ease-out delay-200 ${isVisible
                             ? 'opacity-100 translate-x-0'
                             : 'opacity-0 -translate-x-12'
                             }`}
@@ -49,18 +49,26 @@ export function HeroSection() {
                     {/* Last name - slide in from left */}
                     <div
                         style={{ fontFamily: 'var(--font-ronzino)' }}
-                        className={`tracking-[-15px] text-9xl md:text-[210px] font-bold text-start bg-clip-text text-transparent bg-gradient-to-b from-neutral-300 to-neutral-900 bg-opacity-50 -mt-11 md:-mt-18 transition-all duration-1000 ease-out delay-400 ${isVisible
-                            ? 'opacity-100 translate-x-0'
-                            : 'opacity-0 -translate-x-12'
-                            }`}
+                        className={`tracking-[-15px] text-9xl md:text-[210px] font-bold text-start
+    bg-clip-text text-transparent
+    bg-gradient-to-b
+    from-background
+    via-neutral-300
+    to-neutral-900
+    bg-opacity-50
+    -mt-11 md:-mt-18
+    transition-all duration-1000 ease-out delay-400
+    ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}
+  `}
                     >
+
                         ocier
                     </div>
 
                     {/* Subtitle - fade in from bottom */}
                     <div
                         style={{ fontFamily: 'var(--font-poppins)' }}
-                        className={`tracking-tighter text-xl md:text-4xl font-semibold text-start bg-clip-text text-accent-foreground -mt-2 ml-3 transition-all duration-1000 ease-out delay-700 ${isVisible
+                        className={`tracking-tighter text-xl md:text-4xl font-semibold text-start bg-clip-text text-background -mt-2 ml-3 transition-all duration-1000 ease-out delay-700 ${isVisible
                             ? 'opacity-100 translate-y-0'
                             : 'opacity-0 translate-y-4'
                             }`}
@@ -74,19 +82,22 @@ export function HeroSection() {
                         : 'opacity-0 translate-y-4'
                         }`}>
                         <Link href={"/https://web.facebook.com/amieljay.ocier/"}>
-                            <FaFacebook size={25} />
+                            <FaFacebook size={25} className="text-background" />
                         </Link>
                         <Link href={"/https://www.instagram.com/mr_epee/profilecard/?igsh=MTd0Y2F2em53YW5kbA=="}>
-                            <FaInstagram size={25} />
+                            <FaInstagram size={25} className="text-background" />
                         </Link>
                         <Link href={"/https://x.com/prodbymrepee"}>
-                            <FaTwitter size={25} />
+                            <FaTwitter size={25} className="text-background" />
+                        </Link>
+                        <Link href={"https://www.linkedin.com/in/amiel-jay-ocier-4446672b1/"}>
+                            <FaLinkedin size={25} className="text-background" />
                         </Link>
                     </div>
                 </div>
 
                 {/* Image - fade in and scale */}
-                <div className={`col-span-1 bg-transparent border-3 border-accent-foreground w-[75%] md:w-full pt-6 rounded-t-full items-center mx-auto transition-all duration-1200 ease-out delay-300 h-screen ${isVisible
+                <div className={`col-span-1 bg-transparent border-3 border-background w-[75%] md:w-full pt-6 rounded-t-full items-center mx-auto transition-all duration-1200 ease-out delay-300 h-screen ${isVisible
                     ? 'opacity-100 scale-100'
                     : 'opacity-0 scale-95'
                     }`}
@@ -97,40 +108,7 @@ export function HeroSection() {
                 //     backgroundRepeat: 'no-repeat',
                 // }}
                 >
-                    <Image
-                        src="/icons/star2.png"
-                        alt="Profile picture"
-                        width={40}
-                        height={50}
-                        className="ml-10 md:ml-20 md:mt-15 absolute"
-                        priority
-                    />
-                    <Image
-                        src="/icons/star2.png"
-                        alt="Profile picture"
-                        width={70}
-                        height={50}
-                        className=" md:ml-23 mt-8 md:mt-0 absolute"
-                        priority
-                    />
 
-                    <Image
-                        src="/icons/star2.png"
-                        alt="Profile picture"
-                        width={55}
-                        height={50}
-                        className="-mt-5 md:ml-35 absolute"
-                        priority
-                    />
-
-                    <Image
-                        src="/icons/star2.png"
-                        alt="Profile picture"
-                        width={110}
-                        height={50}
-                        className="md:block hidden mt-15 absolute"
-                        priority
-                    />
 
                     <Image
                         src="/images/sitting1.png"

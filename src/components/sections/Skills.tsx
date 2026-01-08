@@ -43,7 +43,7 @@ export function SkillSection() {
     }, [activeCard])
 
     return (
-        <div className="grid grid-cols-10 relative bg-accent-foreground text-background -mt-8 md:pb-77 ">
+        <div className="grid grid-cols-10 relative bg-accent-foreground text-background -mt-8 md:pb-60 ">
             <div className="col-span-6 md:mt-0 pt-32 md:w-full w-full">
                 <StickyCards onActiveChange={setActiveCard} />
             </div>

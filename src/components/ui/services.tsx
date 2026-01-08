@@ -6,10 +6,12 @@ import { useGSAP } from '@gsap/react';
 import { TextAnimate } from './text-animate';
 
 export default function ServicesMarquee() {
-    const wrapperRef = useRef(null);
+    const wrapperRef = useRef<HTMLDivElement | null>(null);
 
     useGSAP(() => {
         const wrapper = wrapperRef.current;
+        if (!wrapper) return;
+
         const height = wrapper.scrollHeight / 2;
 
         gsap.to(wrapper, {
@@ -19,6 +21,7 @@ export default function ServicesMarquee() {
             repeat: -1,
         });
     }, []);
+
 
     return (
         <div className="relative h-[500px] overflow-hidden">
